@@ -1,0 +1,16 @@
+{
+  "name": "slides",
+  "version": "1.0.0",
+  "main": "app.js",
+  "description": "",
+  "scripts": {
+    "start": "node ./app"
+  },
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-ejs-layouts": "^2.5.0",
+    "glob": "^7.1.3",
+    "reveal.js": "^3.7.0"
+  }
+}

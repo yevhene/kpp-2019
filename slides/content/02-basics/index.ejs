@@ -88,14 +88,16 @@
   </section>
 
   <section>
-    <pre><code class="hljs" data-trim contenteditable>
-1 + 2 * 3 &amp;&amp; 4++
+    <h3>Використовуйте дужки</h3>
+
+    <pre><code class="javascript hljs" data-trim contenteditable>
+1 + 2 * 3 &amp;&amp; -4
     </code></pre>
 
     <i>обраховується, як</i>
 
-    <pre><code class="hljs" data-trim contenteditable>
-(1 + (2 * 3)) &amp;&amp; (4++)
+    <pre><code class="javascript hljs" data-trim contenteditable>
+(1 + (2 * 3)) &amp;&amp; -4
     </code></pre>
   </section>
 </section>
@@ -113,13 +115,23 @@
   <h2>Змінні</h2>
 
   <section>
-    <p>Ім'я для місця в пам'яті. Позначається `let`.</p>
+    <p>Ім'я для комірки пам'яті. Позначається `let`.</p>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 let a = 4;
     </code></pre>
 
-    <p>Тип даних що міститься в змінній може змінюватись.</p>
+    <p>Змінна може бути перезаписана.</p>
+  </section>
+
+  <section>
+    <p>Ім'я для незмінної комірки в пам'яті. Позначається `const`.</p>
+
+    <pre><code class="javascript hljs" data-trim contenteditable>
+const b = 4;
+    </code></pre>
+
+    <p>Змінна <strong>не</strong> може бути пересаписана.</p>
   </section>
 </section>
 
@@ -134,101 +146,14 @@ let a = 4;
       <li><b>undefined</b> - Якщо значення не визначене</li>
     </ul>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 let student = null;
 let studentMark = undefined;
     </code></pre>
   </section>
-</section>
-
-<section>
-  <h2>Коментарі</h2>
 
   <section>
-    <p>Пояснення до коду або код що відмічений, як той що не має виконуватись.</p>
-
-    <ul>
-      <li><b>//</b> - Одностроковий коментар. Все що після позначки `//` не виконується</li>
-      <li><b>/* ... */</b> - Багатостроковий коментар. Все що між `/*` і `*/` не виконується</li>
-    </ul>
-
-    <pre><code class="hljs" data-trim contenteditable>
-// Це коментар
-
-/*
- * А це
- *   багатостроковий
- * коментар
- */
-    </code></pre>
-  </section>
-</section>
-
-<section>
-  <h2>Масиви</h2>
-
-  <section>
-    <p>Упорядкований, пронумерований набір елементів. Елементи нумеруються починаючи з 0. Для доступу до елемента використувується оператор `[]`.</p>
-
-    <pre><code class="hljs" data-trim contenteditable>
-let items = [3, true, 'Василь'];
-
-items[2] //=&gt; 'Василь'
-    </code></pre>
-  </section>
-</section>
-
-<section>
-  <h2>Приведення типів</h2>
-
-  <section>
-    <h3>Type coercion</h3>
-
-    <p>Перетворення одно типу в інший.</p>
-  </section>
-
-  <section>
-    <h3>Явне (explicit)</h3>
-
-    <pre><code class="hljs" data-trim contenteditable>
-let str = '5';
-Number(str);
-    </code></pre>
-  </section>
-
-  <section>
-    <h3>Неявне (implicit)</h3>
-
-    <p>Виконується під час застосування бінарних операторів (операторів для двух аргументів). Окрім `===` і `!==`.</p>
-
-    <pre><code class="hljs" data-trim contenteditable>
-'2' + '1' //=&gt; '21'
-'2' - '1' //=&gt; 1
-
-('1' + 2) + 3 //=&gt; '123'
-'1' + (2 + 3) //=&gt; '15'
-
-[1] + 2 //=&gt; '12'
-    </code></pre>
-  </section>
-</section>
-
-<section>
-  <h2>Об'єкти</h2>
-
-  <section>
-    <p>Набір пар ключ - значення.</p>
-
-    <pre><code class="hljs" data-trim contenteditable>
-let student = {
-  name: 'Василь',
-  group: 'КН'
-};
-
-items['name'] //=&gt; 'Василь'
-items.group //=&gt; 'КН'
-items.group = 'ПІ' //=&gt; 'ПІ'
-    </code></pre>
+    <img src="images/null-undefined.png" />
   </section>
 </section>
 
@@ -242,7 +167,7 @@ items.group = 'ПІ' //=&gt; 'ПІ'
   <section>
     <h3>if...else</h3>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 let x = 0;
 let i = 0;
 
@@ -269,7 +194,7 @@ i; //=&gt; -1
 
     <p>Виконує блок коду доки умова правдива. Якщо умова одразу неправдива, не виконується жодного разу.</p>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 let i = 0;
 
 while (i &lt; 5) {
@@ -285,7 +210,7 @@ i; //=&gt; 5
 
     <p>Аналогічний до циклу `while` але завжди виконується, як мінімум один раз, навіть якщо умова одразу неправдива.</p>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 let i = 0;
 
 do {
@@ -301,7 +226,7 @@ i; //=&gt; 1
 
     <p>Скорочений запис циклу що виконується конкретну кількість разів. Складається з трьох частин `for (ініціалізація; умова; зміна)`.</p>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 for (let i = 0; i &lt; 5; i++) {
   // ...код...
 }
@@ -319,13 +244,113 @@ for (let i = 0; i &lt; 5; i++) {
 </section>
 
 <section>
+  <h2>Коментарі</h2>
+
+  <section>
+    <p>Пояснення до коду або код що відмічений, як той що не має виконуватись.</p>
+
+    <ul>
+      <li><b>//</b> - Одностроковий коментар. Все що після позначки `//` не виконується</li>
+      <li><b>/* ... */</b> - Багатостроковий коментар. Все що між `/*` і `*/` не виконується</li>
+    </ul>
+
+    <pre><code class="javascript hljs" data-trim contenteditable>
+// Це коментар
+
+/*
+ * А це
+ *   багатостроковий
+ * коментар
+ */
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Масиви</h2>
+
+  <section>
+    <p>Упорядкований, пронумерований набір елементів. Елементи нумеруються починаючи з 0. Для доступу до елемента використувується оператор `[]`.</p>
+
+    <pre><code class="javascript hljs" data-trim contenteditable>
+let items = [3, true, 'Василь'];
+
+items[2] //=&gt; 'Василь'
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Приведення типів</h2>
+
+  <section>
+    <h3>Type coercion</h3>
+
+    <p>Перетворення одно типу в інший.</p>
+  </section>
+
+  <section>
+    <h3>Явне (explicit)</h3>
+
+    <pre><code class="javascript hljs" data-trim contenteditable>
+let str = '5';
+Number(str);
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Неявне (implicit)</h3>
+
+    <p>Виконується під час застосування бінарних операторів (операторів для двух аргументів). Окрім `===` і `!==`.</p>
+
+    <pre><code class="javascript hljs" data-trim contenteditable>
+'2' + '1' //=&gt; '21'
+'2' - '1' //=&gt; 1
+
+('1' + 2) + 3 //=&gt; '123'
+'1' + (2 + 3) //=&gt; '15'
+
+[1] + 2 //=&gt; '12'
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Об'єкти</h2>
+
+  <section>
+    <p>Набір пар ключ - значення.</p>
+
+    <pre><code class="javascript hljs" data-trim contenteditable>
+let student = {
+  name: 'Василь',
+  group: 'КН'
+};
+
+items['name'] //=&gt; 'Василь'
+items.group //=&gt; 'КН'
+items.group = 'ПІ' //=&gt; 'ПІ'
+    </code></pre>
+  </section>
+</section>
+
+<section>
   <h2>Функції</h2>
 
   <section>
     <p>Об'єднані частини коду</p>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 function hello() {
+  console.log('Привіт!')
+}
+
+hello();
+//&gt; Привіт!
+    </code></pre>
+
+    <pre><code class="javascript hljs" data-trim contenteditable>
+let hello = function() {
   console.log('Привіт!')
 }
 
@@ -342,7 +367,7 @@ hello();
       <li><b>Аргументи</b> - конкретні значення що передаються під час виклику</li>
     </ul>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 function helloStudent(name, group) {
   let greeting = 'Привіт ' + name + ' з ' + group + '!';
   console.log(greeting);
@@ -360,7 +385,7 @@ helloStudent(studentName, '2-КН');
 
     <p>Значення що підставляється у місце виклику функції.</p>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 function add(a, b) {
   return a + b;
 }
@@ -387,7 +412,7 @@ add(3, 4); //=&gt; 5
   <section>
     <h3>Вивід</h3>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 console.log('Hello World');
     </code></pre>
   </section>

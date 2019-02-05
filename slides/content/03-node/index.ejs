@@ -15,12 +15,22 @@
   </section>
 
   <section>
-    <h3>Інші рушії JavaScript</h3>
+    <h3>Оточення JavaScript</h3>
 
     <ul>
-      <li>Браузерні (Rhino, SpiderMonkey, Chakra)</li>
+      <li>Браузерні</li>
+      <li>Загального призначення (node.js)</li>
+      <li>Настільні (Electron)</li>
       <li>Headless (PhantomJS)</li>
-      <li>Незалежні (V8)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Глобальний об'єкт</h3>
+
+    <ul>
+      <li><b>window</b> - у браузері</li>
+      <li><b>global</b> - у node.js</li>
     </ul>
   </section>
 </section>
@@ -75,7 +85,7 @@ $ node app.js
 </section>
 
 <section>
-  <h2>Пакети node.js</h2>
+  <h2>Вбудовані пакети node.js</h2>
 
   <section>
     <h3>path</h3>
@@ -149,6 +159,46 @@ const server = http.createServer(function(req, res) {
 });
 
 server.listen(3000);
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Власний модуль</h2>
+
+  <section>
+    <i>mul.js</i>
+    <pre><code class="javascript hljs" data-trim contenteditable>
+module.exports = function(a, b) {
+  return a * b;
+};
+    </code></pre>
+
+    <i>app.js</i>
+    <pre><code class="javascript hljs" data-trim contenteditable>
+const mul = require('./mul');
+
+console.log(mul(2, 4)); //=&gt; 8
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Експорт декількох функцій</h3>
+
+    <pre><code class="javascript hljs" data-trim contenteditable>
+module.exports.mul = function(a, b) {
+  return a * b;
+};
+
+module.exports.sqr = function(n) {
+  return module.exports.mul(n, n);
+};
+    </code></pre>
+
+    <pre><code class="javascript hljs" data-trim contenteditable>
+var calc = require('./calc');
+
+console.log(calc.sqr(2)); //=&gt; 4
     </code></pre>
   </section>
 </section>
@@ -267,7 +317,7 @@ $ npm start
 </section>
 
 <section>
-  <h2>Корисні пакети</h2>
+  <h2>Корисні npm пакети</h2>
 
   <section>
     <h3>readline-sync</h3>
@@ -304,46 +354,6 @@ screen.render();
     <h3>awesome ...</h3>
 
     <a href="http://node.cool">node.cool</a>
-  </section>
-</section>
-
-<section>
-  <h2>Власний модуль</h2>
-
-  <section>
-    <i>mul.js</i>
-    <pre><code class="javascript hljs" data-trim contenteditable>
-module.exports = function(a, b) {
-  return a * b;
-};
-    </code></pre>
-
-    <i>app.js</i>
-    <pre><code class="javascript hljs" data-trim contenteditable>
-const mul = require('./mul');
-
-console.log(mul(2, 4)); //=&gt; 6
-    </code></pre>
-  </section>
-
-  <section>
-    <h3>Експорт декількох функцій</h3>
-
-    <pre><code class="javascript hljs" data-trim contenteditable>
-module.exports.mul = function(a, b) {
-  return a * b;
-};
-
-module.exports.sqr = function(n) {
-  return module.exports.mul(n, n);
-};
-    </code></pre>
-
-    <pre><code class="javascript hljs" data-trim contenteditable>
-var calc = require('./calc');
-
-console.log(calc.sqr(2)); //=&gt; 4
-    </code></pre>
   </section>
 </section>
 

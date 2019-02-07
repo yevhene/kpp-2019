@@ -25,6 +25,8 @@ markdown.routes(app, '/docs', path.join(__dirname, '../docs'));
 markdown.routes(app, '/labs', path.join(__dirname, '../labs'));
 markdown.routes(app, '/posts', path.join(__dirname, '../posts'));
 
+app.use('/posts', express.static(path.join(__dirname, '../posts/images')));
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {

@@ -40,7 +40,7 @@
       <li>typeof [1, 2, 3] === 'object'</li>
     </ul>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 function a(b, c){ /* .. */ }
 a.length === 2
 
@@ -53,7 +53,7 @@ Array.isArray(a) === false
   <h2>undefined</h2>
 
   <section>
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 var a;
 typeof a; // "undefined"
     </code></pre>
@@ -62,7 +62,7 @@ typeof a; // "undefined"
   <section>
     <h3>Undeclared</h3>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 typeof c; // "undefined"
 var b = c; // ReferenceError: c is not defined
     </code></pre>
@@ -71,7 +71,7 @@ var b = c; // ReferenceError: c is not defined
   <section>
     <h3>Autodeclaration</h3>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 var d = 43;
 e = d;
 typeof d; // "number"
@@ -83,7 +83,7 @@ window.e === e; // true
   <section>
     <h3>use strict</h3>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 "use strict";
     </code></pre>
   </section>
@@ -179,7 +179,7 @@ window.e === e; // true
   <section>
     <h3>valueOf</h3>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 var a = {};
 a.valueOf = function() { return 3 };
 a == 3; // true
@@ -189,7 +189,7 @@ a == 3; // true
   <section>
     <h3>toString</h3>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 ({}).toString() // "[object Object]"
 (function() {}).toString() // "function () {}"
     </code></pre>
@@ -198,7 +198,7 @@ a == 3; // true
   <section>
     <h3>toJSON</h3>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 var a = {
   val: [1,2,3],
   toJSON: function() {
@@ -225,7 +225,7 @@ JSON.stringify(a); // "[2,3]"
   <section>
     <h3>!!</h3>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 !!12 === true
 !!0 === false
     </code></pre>
@@ -234,7 +234,7 @@ JSON.stringify(a); // "[2,3]"
   <section>
     <h3>parseInt</h3>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 parseInt("12"); // 12
 parseInt(13); // 13
 parseInt("   14   "); // 14
@@ -246,7 +246,7 @@ parseInt("0x10"); // 16
   <section>
     <h3>parseInt ?</h3>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 parseInt(0.000008);
 parseInt(0.0000008);
 parseInt(false, 16);
@@ -263,7 +263,7 @@ parseInt("103", 2);
   <section>
     <h3>Додавання</h3>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 1. Let lref be the result of evaluating AdditiveExpression.
 2. Let lval be ? GetValue(lref).
 3. Let rref be the result of evaluating MultiplicativeExpression.
@@ -299,7 +299,7 @@ parseInt("103", 2);
   <section>
     <h3>&lt;</h3>
 
-    <pre><code class="hljs" data-trim contenteditable>
+    <pre><code class="javascript hljs" data-trim contenteditable>
 var a = [ 42 ];
 var b = "043";
 a &lt; b; // false

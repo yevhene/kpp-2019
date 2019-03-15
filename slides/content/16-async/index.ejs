@@ -66,7 +66,7 @@ add2(10).then(v =&gt; {
 async function add1(x) {
   var a = resolveAfter2Seconds(20);
   var b = resolveAfter2Seconds(30);
-  return x + await a + await b;
+  return x + await Promise.all([a, b]);
 }
 
 add1(10).then(v =&gt; {

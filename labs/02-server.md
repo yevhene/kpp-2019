@@ -37,11 +37,7 @@ app.get('/tasks', function(req, res) {
 ### Обробка параметрів
 ```javascript
 app.get('/tasks/:id', function(req, res) {
-  res.send(
-    'Ви хочете отримати задачу з id=' +
-    req.params.id +
-    ', але на сьогодні задач немає!'
-  );
+  res.send(`Ви хочете отримати задачу з id=${req.params.id}!`);
 });
 ```
 Для обробки параметрів перданих через `?` використовується об'єкт `req.query`.
@@ -106,11 +102,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 ### Доступ до тіла
 ```javascript
 app.post('/tasks', function(req, res) {
-  res.send(
-    'Ви хочете створити задачу з ім\'ям "' +
-    req.body.name +
-    '", але на сьогодні задач не було і не буде!'
-  );
+  res.send(`Ви хочете створити задачу з ім\'ям ${req.body.name}!`);
 });
 ```
 
@@ -138,7 +130,7 @@ const MongoClient = mongodb.MongoClient;
 const mongoUrl = 'mongodb://localhost:27017/02-server';
 let mongo;
 MongoClient
-  .connect(mongoUrl)
+  .connect(mongoUrl, { useNewUrlParser: true })
   .then(function(client) {
     mongo = client.db();
   });
@@ -150,7 +142,8 @@ MongoClient
 ### Отримання списку
 ```javascript
 mongo
-  .collection('tasks').find().toArray()
+  .collection('tasks')
+  .find().toArray()
   .then(function(tasks) {
     // Робота зі списком tasks
   });
@@ -160,7 +153,8 @@ mongo
 ### Пошук елементів
 ```javascript
 mongo
-  .collection('tasks').find({ name: 'Задача1' }).toArray()
+  .collection('tasks')
+  .find({ name: 'Задача1' }).toArray()
   .then(function(task) {
     // Робота зі списком tasks
   });
@@ -170,8 +164,22 @@ mongo
 ### Пошук одного елементу
 ```javascript
 mongo
-  .collection('tasks').findOne({ name: 'Задача1' })
-  .then(function(tasks) {
+  .collection('tasks')
+  .findOne({ name: 'Задача1' })
+  .then(function(task) {
+    // Робота з task
+  });
+```
+Повертаю першу знайдену задачу з ім'ям 'Задача1'.
+
+### Пошук одного елементу по ідентифікатору
+```javascript
+const ObjectId = mongodb.ObjectId;
+
+mongo
+  .collection('tasks')
+  .findOne({ _id: ObjectId(req.params.id) })
+  .then(function(task) {
     // Робота з task
   });
 ```
@@ -180,7 +188,8 @@ mongo
 ### Створення
 ```javascript
 mongo
-  .collection('tasks').insert({ name: 'Нова задача' })
+  .collection('tasks')
+  .insertOne({ name: 'Нова задача' })
   .then(function() {
     // Виконується після створення
   });
@@ -189,7 +198,8 @@ mongo
 ### Оновлення
 ```javascript
 mongo
-  .collection('tasks').update({ name: 'Задача1' }, { name: 'Задача2' })
+  .collection('tasks')
+  .updateOne({ name: 'Задача1' }, { name: 'Задача2' })
   .then(function() {
     // Виконується після оновлення
   });
@@ -199,7 +209,8 @@ mongo
 ### Видалення
 ```javascript
 mongo
-  .collection('tasks').remove({ name: 'Задача1' })
+  .collection('tasks')
+  .deleteOne({ name: 'Задача1' })
   .then(function() {
     // Виконується після видалення
   });

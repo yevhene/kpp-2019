@@ -14,7 +14,7 @@ app.set('views', __dirname);
 app.use(expressLayouts);
 app.set('layout', path.join(__dirname, 'layouts/layout'));
 
-app.use(express.static(path.join(__dirname, '../', 'app', 'assets')));
+app.use(express.static(path.join(__dirname, '../app/assets')));
 
 // Attach reveal dirs from node_moduels
 const revealPath = path.dirname(require.resolve('reveal.js/package.json'));

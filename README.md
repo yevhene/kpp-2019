@@ -184,3 +184,19 @@
   - Автентифікація;
   - CORS.
 - [Слайди](/slides/21-ajax)
+
+#### Лекція 22: Websocket
+- Теми:
+  - Websocket протокол
+  - Підтримка на сервері та у браузері
+- [Слайди](/slides/22-websockets)
+
+#### Лекція 23: Apache Cordova
+- Теми:
+  - Apache Cordova
+- [Слайди](/slides/23-cordova)
+
+#### Лекція 24: Electron
+- Теми:
+  - Electron
+- [Слайди](/slides/24-electron)

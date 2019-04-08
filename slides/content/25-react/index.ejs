@@ -1,0 +1,685 @@
+<section>
+  <h1>React</h1>
+  <h2>Лекція 25</h2>
+</section>
+
+<section>
+  <h2>Чому React?</h2>
+
+  <section>
+    <h2>Історія</h2>
+
+    <ul>
+      <li>React був створений <b>Jordan Walke</b>, розробником в <b>Facebook</b></li>
+      <li>Він був використаний перший раз на стрічці новин Facebook в <b>2011</b> році і пізніше на Instagram.com в 2012</li>
+      <li>Його код був відкритий під JSConf US в <b>Травні 2013-го</b></li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Переваги</h3>
+
+    <ul>
+      <li>Швидкість (Virtual DOM)</li>
+      <li>Інфраструктура</li>
+      <li>Мінімалістичність</li>
+      <li>Контроль</li>
+      <li>Ізоморфність (Server-Side rendering)</li>
+      <li>Універсальність</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Особливості</h3>
+
+    <ul>
+      <li>Це не фреймворк, це бібліотека для відображення</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Недоліки</h3>
+
+    <ul>
+      <li>Високий поріг входу</li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <h2>Багатоплатформність</h2>
+
+  <section>
+    <h3>Браузер</h3>
+
+    <a target="_blank" href="https://github.com/facebook/react/tree/master/packages/react-dom">react-dom</a>
+  </section>
+
+  <section>
+    <h3>Мобільні</h3>
+
+    <a target="_blank" href="https://github.com/facebook/react-native">react-native</a>
+    <br />
+
+    <img src="images/react-native.gif" />
+  </section>
+
+  <section>
+    <h3>Термінал</h3>
+
+    <a target="_blank" href="https://github.com/Yomguithereal/react-blessed">react-blessed</a>
+    <br />
+
+    <img src="images/react-blessed.gif" />
+  </section>
+
+  <section>
+    <h3>Віртуальна реальність</h3>
+
+    <a target="_blank" href="https://github.com/ngokevin/aframe-react">aframe-react</a>
+    <br />
+
+    <img src="images/react-aframe.gif" />
+  </section>
+
+  <section>
+    <h3>Залізо</h3>
+
+    <a target="_blank" href="https://github.com/iamdustan/react-hardware">react-hardware</a>
+    <br />
+
+    <img src="images/react-hardware.gif" />
+  </section>
+</section>
+
+<section>
+  <h2>Hello World</h2>
+
+  <section>
+    <h3>Імпорт</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+&lt;script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"&gt;&lt;/script&gt;
+&lt;script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"&gt;&lt;/script&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Точка монтування</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+&lt;h1&gt;Hello World!&lt;/h1&gt;
+
+&lt;div id="root"&gt;&lt;/div&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Скрипт</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+function Button() {
+  return React.createElement('button', null, 'Hello');
+}
+
+function App() {
+  return React.createElement('div', null,
+    React.createElement('h2', null, 'Here be button'),
+    React.createElement(Button)
+  );
+}
+
+ReactDOM.render(
+  React.createElement(App),
+  document.getElementById('root')
+);
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Результат</h3>
+
+    <iframe src="examples/react.html"></iframe>
+  </section>
+</section>
+
+<section>
+  <h2>create-react-app</h2>
+
+  <section>
+    <h2>Встановлення генератора</h2>
+
+    <pre><code class="javascript" data-trim contenteditable>
+$ npm install -g create-react-app
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Генерація нової аплікації</h2>
+
+    <pre><code class="javascript" data-trim contenteditable>
+$ create-react-app myapp
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Запуск аплікації</h2>
+
+    <pre><code class="javascript" data-trim contenteditable>
+cd myapp
+yarn start
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>DEMO: React Hello World</h3>
+
+    <img src="images/react-hello-world.png" />
+
+    <div>
+      <a href="https://github.com/yevhene/kpp-2018/tree/master/demo/react-hello-world">react-hello-world</a>
+    </div>
+  </section>
+
+  <section>
+    <h3>Нова аплікація</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+.
+├── .gitignore
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+├── README.md
+├── src
+│   ├── App.css
+│   ├── App.js
+│   ├── App.test.js
+│   ├── index.css
+│   ├── index.js
+│   ├── logo.svg
+│   └── registerServiceWorker.js
+└── yarn.lock
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>package.json</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+{
+  "name": "myapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h1><strike>889</strike> 943 пакетів</h1>
+  </section>
+
+  <section>
+    <h3>Скрипти</h3>
+
+    <ul>
+      <li><b>yarn start</b> - запуск аплікації в режимі розробки;</li>
+      <li><b>yarn build</b> - побудова аплікації для випуску;</li>
+      <li><b>yarn test</b> - запуск тестів аплікації;</li>
+      <li><b>yarn eject</b> - вивантаження конфігурації та видалення react-scripts.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Точка входу</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));
+registerServiceWorker();
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Компоненти</h2>
+
+  <section>
+    <h3>Імпорт</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Клас компоненту</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+class App extends Component {
+  render() {
+    return (
+      ...
+    );
+  }
+}
+
+export default App;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>JSX</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+&lt;div className="App"&gt;
+  &lt;header className="App-header"&gt;
+    &lt;img src={logo} className="App-logo" alt="logo" /&gt;
+    &lt;h1 className="App-title"&gt;Welcome to React&lt;/h1&gt;
+  &lt;/header&gt;
+  &lt;p className="App-intro"&gt;
+    To get started, edit &lt;code&gt;src/App.js&lt;/code&gt; and save to reload.
+  &lt;/p&gt;
+&lt;/div&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>No JSX</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+React.createElement("div", { className: "App" },
+  React.createElement("header", { className: "App-header" },
+    React.createElement("img", { src: logo, className: "App-logo", alt: "logo" }),
+    React.createElement("h1", { className: "App-title" }, "Welcome to React")
+  ),
+  React.createElement("p", { className: "App-intro" }, "To get started, edit ",
+    React.createElement("code", null, "src/App.js"),
+    " and save to reload."
+  )
+);
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>JSX (інтерполяція)</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+&lt;div&gt;
+  &lt;h1&gt;Artists&lt;/h1&gt;
+
+  {this.artists.length === 0 ? (
+    &lt;h2&gt;Not found&lt;/h2&gt;
+  ) : (
+    &lt;ul&gt;
+      {this.artists.forEach((artist) =&gt; (
+        &lt;li&gt;{artist.name}&lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  )}
+&lt;/div&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>JSX (інтерполяція)</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+renderArtists() {
+  if (this.artists.length === 0) {
+    return (&lt;h2&gt;Not Found&lt;/h2&gt;);
+  } else {
+    return this.artists.forEach((a) =&gt; &lt;li&gt;{a.name}&lt;/li&gt;);
+  }
+}
+
+render() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Artists&lt;/h1&gt;
+      {renderArtists()}
+    &lt;/div&gt;
+  );
+}
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Властивості (props)</h2>
+
+  <section>
+    <pre><code class="javascript" data-trim contenteditable>
+class Phone extends Component {
+  render() {
+    return &lt;div className="phone"&gt;{this.props.number}&lt;/div&gt;;
+  }
+}
+    </code></pre>
+
+    <pre><code class="javascript" data-trim contenteditable>
+class Contact extends Component {
+  render() {
+    return (
+      &lt;img src={this.props.contact.image} /&gt;
+      &lt;Phone number={this.props.contact.phone} /&gt;
+    );
+  }
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Контроль властивостей</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+npm install --save prop-types
+    </code></pre>
+
+    <pre><code class="javascript" data-trim contenteditable>
+Phone.propTypes = {
+  number: PropTypes.number.isRequired,
+  code: PropTypes.string
+};
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Властивості за замовчуванням</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+Phone.defaultProps = {
+  code: '+380'
+};
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Компоненти без стану (stateless)</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+class Phone extends Component {
+  render() {
+    return &lt;div className="phone"&gt;{props.number}&lt;/div&gt;;
+  }
+}
+    </code></pre>
+
+    <pre><code class="javascript" data-trim contenteditable>
+function Phone(props) {
+  return &lt;div className="phone"&gt;{props.number}&lt;/div&gt;;
+}
+    </code></pre>
+
+    <pre><code class="javascript" data-trim contenteditable>
+const Phone = ({ number }) =&gt;
+  &lt;div className="phone"&gt;{number}&lt;/div&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Компоненти вищого порядку</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+class FieldList extends Component {
+  render() {
+    return (
+      &lt;div class="field-list"&gt;
+        {this.props.children}
+      &lt;/div&gt;
+    );
+  }
+}
+    </code></pre>
+
+    <pre><code class="javascript" data-trim contenteditable>
+&lt;FieldList&gt;
+  &lt;Phone number={this.contact.phone} /&gt;
+&lt;/FieldList&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Fragment</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+const Cells = ({ user }) =&gt;
+  &lt;React.Fragment&gt;
+    &lt;td&gt;{user.name}&lt;/td&gt;
+    &lt;td&gt;{user.phone}&lt;/td&gt;
+  &lt;/React.Fragment&gt;
+    </code></pre>
+
+    <pre><code class="javascript" data-trim contenteditable>
+const Table = ({ users }) =&gt;
+  &lt;table&gt;
+    {users.forEach((user, index) =&gt;
+      &lt;tr&gt;
+        &lt;td&gt;{index}&lt;/td&gt;
+        &lt;Cells user={this.user}&gt;
+      &lt;/tr&gt;
+    }
+  &lt;/table&gt;
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Стан (state)</h2>
+
+  <section>
+    <h3>Компоненти зі станом (stateful)</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+class Counter extends Component {
+  constructor() {
+    super();
+    this.state = { count: 0 };
+  }
+
+  increment = () =&gt; {
+    this.setState((prevState) =&gt; { count: prevState.count + 1 });
+  }
+
+  render() {
+    return (
+      &lt;button onClick={this.increment}&gt;{this.state.count}&lt;/button&gt;
+    );
+  }
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Зворотні виклики (callbacks)</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+class MyCounter extends Counter {
+  render() {
+    return (&lt;CounterButton onClick={this.increment} count={this.state.count} /&gt;);
+  }
+}
+    </code></pre>
+
+    <pre><code class="javascript" data-trim contenteditable>
+const CounterButton = () =&gt;
+  &lt;Button onClick={this.props.increment}&gt;
+    {this.props.count}
+  &lt;Button&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Неконтрольовані компоненти</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+class UserForm extends Component {
+  createUser = (e) =&gt; {
+    const user = { name: this.name.value };
+    fetch('/users', {
+      method: 'POST', body: JSON.stringify(user)
+    });
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  render() {
+    return &lt;form onSubmit={createUser}&gt;
+      &lt;input type="text" ref={(ref) =&gt; this.name = ref} /&gt;
+      &lt;input type="submit" /&gt;
+    &lt;/form&gt;
+  }
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Контрольовані компоненти</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+class UserForm extends Component {
+  constructor() {
+    super();
+    this.state = { name: '' };
+  }
+
+  createUser = (e) =&gt; {
+    const user = this.state;
+    fetch('/users', {
+      method: 'POST', body: JSON.stringify(user)
+    });
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  //...
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Контрольовані компоненти</h3>
+
+    <pre><code class="javascript" data-trim contenteditable>
+class UserForm extends Component {
+  //...
+  updateName = (e) =&gt; {
+    this.setState(() =&gt; { name: e.target.value });
+  }
+
+  render() {
+    return &lt;form onSubmit={this.createUser}&gt;
+      &lt;input
+        type="text"
+        value={this.state.name}
+        onChange={this.updateName}
+      /&gt;
+      &lt;input type="submit" /&gt;
+    &lt;/form&gt;
+  }
+}
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Методи життєвого циклу</h2>
+
+  <section>
+    <pre><code class="javascript" data-trim contenteditable>
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: props.count };
+  }
+
+  componentDidMount() {
+    fetch('/count')
+      .then((response) =&gt; response.json())
+      .then((data) =&gt;
+        this.setState(() =&gt; { counter: data.count })
+      );
+  }
+
+  ...
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Монтування</h3>
+
+    <ul>
+      <li><b>constructor(props)</b> - Конструктор;</li>
+      <li><b>static getDerivedStateFromProps(nextProps, prevState)</b> - Викликається під час отримання props щоб отримати новий state;</li>
+      <li><strike>componentWillMount()</strike> - Перед приєднанням компонента;</li>
+      <li><b>render()</b> - Прорахунок дерева компонентів;</li>
+      <li><b>componentDidMount()</b> - Після приєднання компонентаю</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Оновлення</h3>
+
+    <ul>
+      <li><strike>componentWillReceiveProps(nextProps)</strike> - Компонент має отримати властивості;</li>
+      <li><b>static getDerivedStateFromProps(nextProps, prevState)</b> - Викликається під час зміни props, щоб отримати новий state;</li>
+      <li><b>shouldComponentUpdate(nextProps, nextState)</b> - Чи має компонент оновлюватись?</li>
+      <li><strike>componentWillUpdate(nextProps, nextState)</strike> - Перед тим, як компонент оновиться;</li>
+      <li><b>render()</b> - Прорахунок дерева компонентів;</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Оновлення</h3>
+
+    <ul>
+      <li><b>render()</b> - Прорахунок дерева компонентів;</li>
+      <li><b>getSnapshotBeforeUpdate(prevProps, prevState)</b> - Дозволяє отримати значення з HTML перед відображенням;</li>
+      <li><b>componentDidUpdate(prevProps, prevState, snapshot)</b> - Після оновлення.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Відмонтування</h3>
+
+    <ul>
+      <li><b>componentWillUnmount()</b> - Перед відмонтування компонента.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Обробка помилок</h3>
+
+    <ul>
+      <li><b>componentDidCatch(error, info)</b> - Якщо в дочірніх компонентах виникла помилка.</li>
+    </ul>
+  </section>
+
+  <section>
+    <img src="images/react-lifecycle.jpg" />
+  </section>
+</section>
+
+<section>
+  <h2>Питання?</h2>
+</section>

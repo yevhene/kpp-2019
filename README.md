@@ -200,3 +200,16 @@
 - Теми:
   - Electron
 - [Слайди](/slides/24-electron)
+
+#### Лекція 25: React
+- Теми:
+  - React
+  - JSX
+- [Слайди](/slides/25-react)
+- [Демо (код)](https://github.com/yevhene/kpp-2019/tree/master/demo/react-hello-world)
+
+#### Лекція 26: Архітектура Fiber
+- Теми:
+  - Fiber
+- [Слайди](/slides/26-fiber)
+- [Демо (код)](https://github.com/yevhene/kpp-2019/tree/master/demo/react-fiber)

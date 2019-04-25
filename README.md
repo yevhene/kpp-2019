@@ -219,3 +219,11 @@
   - Fiber
 - [Слайди](/slides/27-fiber)
 - [Демо (код)](https://github.com/yevhene/kpp-2019/tree/master/demo/react-fiber)
+
+#### Лекція 28: Управління станом
+- Теми:
+  - Flux;
+  - Redux;
+  - Побічні ефекти (Redux Thunk).
+- [Слайди](/slides/28-redux)
+- [Демо (код)](https://github.com/yevhene/kpp-2018/tree/master/demo/redux)

@@ -2,23 +2,23 @@
 
 Prepare:
 ```
-npm install
+yarn
 ```
 
 Same Pokemon application written with three diffirent technologies:
 ```
-npm start react
+yarn start react
 ```
 
 ```
-npm start flux
+yarn start flux
 ```
 
 ```
-npm start redux
+yarn start redux
 ```
 
 Bonus "Time Machine":
 ```
-npm start redux-time-machine
+yarn start redux-time-machine
 ```

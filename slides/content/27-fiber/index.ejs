@@ -199,19 +199,18 @@ window.requestIdleCallback(callback[, options])
   </section>
 </section>
 
-
 <section>
   <h2>Інші можливості</h2>
 
   <section>
-    <h3>AsyncMode</h3>
+    <h3>ConcurrentMode</h3>
 
     <pre><code class="hljs" data-trim>
-const AsyncMode = React.unstable_AsyncMode;
+const ConcurrentMode = React.unstable_ConcurrentMode;
 
-&lt;AsyncMode&gt;
+&lt;ConcurrentMode&gt;
   &lt;App /&gt; // Low Priority by default
-&lt;/AsyncMode&gt;
+&lt;/ConcurrentMode&gt;
     </code></pre>
 
     <pre><code class="hljs" data-trim>

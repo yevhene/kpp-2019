@@ -227,3 +227,16 @@
   - Побічні ефекти (Redux Thunk).
 - [Слайди](/slides/28-redux)
 - [Демо (код)](https://github.com/yevhene/kpp-2018/tree/master/demo/redux)
+
+#### Лекція 29: React Native
+- Теми:
+  - React Native
+  - Expo
+- [Слайди](/slides/29-react-native)
+- [Демо](https://github.com/yevhene/kpp-2018/tree/master/demo/react-native-hello-world)
+
+#### Лекція 30: React Native Navigation
+- Теми:
+  - React Native Navigation
+- [Слайди](/slides/30-react-native-navigation)
+- [Демо](https://github.com/yevhene/kpp-2018/tree/master/demo/react-native-navigation)

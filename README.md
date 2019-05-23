@@ -240,3 +240,11 @@
   - React Native Navigation
 - [Слайди](/slides/30-react-native-navigation)
 - [Демо](https://github.com/yevhene/kpp-2018/tree/master/demo/react-native-navigation)
+
+#### Лекція 31: ECMAScript
+- Теми:
+  - Стандарт ECMAScript;
+  - Історія;
+  - Нововведення.
+Стандарт. Історія.
+- [Слайди](/slides/31-ecma)
